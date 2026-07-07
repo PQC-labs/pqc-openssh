@@ -1,0 +1,26 @@
+services:
+  ssh-server:
+    container_name: ssh-server
+    build:
+      context: ./server
+    hostname: ssh-server
+    tty: true
+    stdin_open: true
+    networks:
+      - pqc-openssh-net
+
+  ssh-client:
+    container_name: ssh-client
+    build:
+      context: ./client
+    hostname: ssh-client
+    tty: true
+    stdin_open: true
+    depends_on:
+      - ssh-server
+    networks:
+      - pqc-openssh-net
+
+networks:
+  pqc-openssh-net:
+    driver: bridge
