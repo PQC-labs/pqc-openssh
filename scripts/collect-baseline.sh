@@ -7,9 +7,13 @@
 
 set -euo pipefail
 
-OUTPUT_FILE="docs/baseline.md"
+OUTPUT_DIR="results/baselines"
+mkdir -p "$OUTPUT_DIR"
 
-mkdir -p "$(dirname "$OUTPUT_FILE")"
+HOSTNAME=$(hostname)
+DATE=$(date +"%Y%m%d-%H%M%S")
+
+OUTPUT_FILE="${OUTPUT_DIR}/${HOSTNAME}-${DATE}.md"
 
 SSH_VERSION=$(ssh -V 2>&1)
 OPENSSL_VERSION=$(openssl version)
