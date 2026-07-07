@@ -1,4 +1,4 @@
-# PQC OpenSSH Lab
+# PQC-OpenSSH Labs
 
 Research repository for experimenting with Post-Quantum Cryptography in OpenSSH.
 
