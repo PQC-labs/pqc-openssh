@@ -1,26 +1,35 @@
 services:
-  ssh-server:
-    container_name: ssh-server
+
+  server:
     build:
       context: ./server
-    hostname: ssh-server
-    tty: true
-    stdin_open: true
+    container_name: pqc-server
+    hostname: server
     networks:
-      - pqc-openssh-net
+      - pqc-net
+    volumes:
+      - ./keys/authorized_keys:/tmp/authorized_keys:ro
+    ports:
+      - "2222:22"
+    restart: unless-stopped
 
-  ssh-client:
-    container_name: ssh-client
+  client:
     build:
       context: ./client
-    hostname: ssh-client
-    tty: true
-    stdin_open: true
-    depends_on:
-      - ssh-server
+    container_name: pqc-client
+    hostname: client
     networks:
-      - pqc-openssh-net
+      - pqc-net
+    volumes:
+      - ./keys/id_ed25519:/home/researcher/.ssh/id_ed25519:ro
+      - ./keys/id_ed25519.pub:/home/researcher/.ssh/id_ed25519.pub:ro
+    depends_on:
+      - server
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
 
 networks:
-  pqc-openssh-net:
+  pqc-net:
     driver: bridge
