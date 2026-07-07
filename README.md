@@ -1,3 +1,9 @@
+# Post-Quantum Cryptography Lab
+
+![Status](https://img.shields.io/badge/status-active-success)
+![Research](https://img.shields.io/badge/research-PQC-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 # PQC-OpenSSH Labs
 
 Research repository for experimenting with Post-Quantum Cryptography in OpenSSH.
