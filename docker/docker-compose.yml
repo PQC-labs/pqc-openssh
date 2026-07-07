@@ -1,0 +1,17 @@
+services:
+
+  server:
+    build:
+      context: ./server
+    container_name: pqc-server
+    hostname: server
+    ports:
+      - "2222:22"
+
+  client:
+    build:
+      context: ./client
+    container_name: pqc-client
+    hostname: client
+    stdin_open: true
+    tty: true
