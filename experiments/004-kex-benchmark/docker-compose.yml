@@ -1,0 +1,42 @@
+services:
+
+  server:
+    build:
+      context: ./server
+    image: 004-kex-benchmark-server
+    container_name: pqc4-server
+    hostname: server
+
+    ports:
+      - "2224:22"
+
+    volumes:
+      - ../../docker/keys:/keys:ro
+
+    networks:
+      - pqc4-net
+
+  client:
+    build:
+      context: ./client
+    image: 004-kex-benchmark-client
+    container_name: pqc4-client
+    hostname: client
+
+    stdin_open: true
+    tty: true
+
+    volumes:
+      - ../../docker/keys:/keys:ro
+      - ./scripts:/scripts:ro
+      - ./results:/results
+
+    depends_on:
+      - server
+
+    networks:
+      - pqc4-net
+
+networks:
+  pqc4-net:
+    driver: bridge
