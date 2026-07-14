@@ -5,16 +5,8 @@ set -euo pipefail
 ###############################################################################
 # OpenSSH Native PQC Key Exchange Benchmark
 #
-# Description:
-#   Measures the SSH connection establishment time for different
-#   Key Exchange (KEX) algorithms supported by OpenSSH.
-#
-# Usage:
-#   ./benchmark-kex.sh [iterations]
-#
-# Example:
-#   ./benchmark-kex.sh 100
-#
+# Measures the SSH connection establishment time for different
+# Key Exchange algorithms.
 ###############################################################################
 
 ITERATIONS="${1:-50}"
@@ -45,7 +37,7 @@ echo "Iterations  : ${ITERATIONS}"
 echo "Output file : ${OUTPUT}"
 echo
 
-echo "timestamp,algorithm,iteration,time_seconds" > "${OUTPUT}"
+echo "timestamp,algorithm,iteration,time_seconds,status" > "${OUTPUT}"
 
 for ALG in "${KEX_ALGORITHMS[@]}"
 do
@@ -57,24 +49,31 @@ do
     do
         printf "\r[%s] %3d/%3d" "${ALG}" "${i}" "${ITERATIONS}"
 
-        START=$(date --iso-8601=seconds)
+        TS=$(date --iso-8601=seconds)
 
-        TIME=$(
-            /usr/bin/time -f "%e" \
-            /opt/openssh/bin/ssh \
-                -o BatchMode=yes \
-                -o LogLevel=ERROR \
-                -o StrictHostKeyChecking=no \
-                -o UserKnownHostsFile=/dev/null \
-                -o ConnectTimeout=5 \
-                -o KexAlgorithms="${ALG}" \
-                -i "${KEY}" \
-                "${USER}@${HOST}" \
-                exit \
-            >/dev/null 2>&1
-        )
+        START=$(date +%s.%N)
 
-        echo "${START},${ALG},${i},${TIME}" >> "${OUTPUT}"
+        if /opt/openssh/bin/ssh \
+            -o BatchMode=yes \
+            -o LogLevel=ERROR \
+            -o StrictHostKeyChecking=no \
+            -o UserKnownHostsFile=/dev/null \
+            -o ConnectTimeout=5 \
+            -o KexAlgorithms="${ALG}" \
+            -i "${KEY}" \
+            "${USER}@${HOST}" \
+            true >/dev/null 2>&1
+        then
+            STATUS="OK"
+        else
+            STATUS="FAIL"
+        fi
+
+        END=$(date +%s.%N)
+
+        ELAPSED=$(awk "BEGIN {printf \"%.6f\", ${END}-${START}}")
+
+        echo "${TS},${ALG},${i},${ELAPSED},${STATUS}" >> "${OUTPUT}"
     done
 
     echo
@@ -85,6 +84,6 @@ done
 echo "========================================================"
 echo "Benchmark completed successfully."
 echo
-echo "Raw results:"
+echo "Results written to:"
 echo "  ${OUTPUT}"
 echo "========================================================"
