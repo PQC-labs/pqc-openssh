@@ -8,7 +8,7 @@ services:
     networks:
       - pqc-net
     volumes:
-      - ./keys/authorized_keys:/tmp/authorized_keys:ro
+      - ../../docker/keys:/keys:ro
     ports:
       - "2222:22"
     restart: unless-stopped
@@ -16,19 +16,23 @@ services:
   client:
     build:
       context: ./client
+
     container_name: pqc-client
     hostname: client
+
     networks:
       - pqc-net
+
     volumes:
-      - ./keys/id_ed25519:/home/researcher/.ssh/id_ed25519:ro
-      - ./keys/id_ed25519.pub:/home/researcher/.ssh/id_ed25519.pub:ro
+      - ../../docker/keys:/keys:ro
+
     depends_on:
       - server
+
     stdin_open: true
     tty: true
-    restart: unless-stopped
 
+    restart: unless-stopped
 
 networks:
   pqc-net:
