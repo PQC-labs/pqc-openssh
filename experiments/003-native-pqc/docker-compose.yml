@@ -1,0 +1,36 @@
+services:
+
+  server:
+    build:
+      context: ./server
+    container_name: pqc3-server
+
+    ports:
+      - "2223:22"
+
+    volumes:
+      - ../../docker/keys:/keys:ro
+
+    networks:
+      - pqc-net
+
+  client:
+    build:
+      context: ./client
+    container_name: pqc3-client
+
+    stdin_open: true
+    tty: true
+
+    volumes:
+      - ../../docker/keys:/keys:ro
+
+    depends_on:
+      - server
+
+    networks:
+      - pqc-net
+
+networks:
+
+  pqc-net:
