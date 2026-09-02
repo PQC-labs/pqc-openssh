@@ -1,1 +1,9 @@
-results/baselines/
+# Generated experiment results
+results/baselines/*
+!results/baselines/.gitkeep
+
+results/captures/*
+!results/captures/.gitkeep
+
+results/benchmarks/*
+!results/benchmarks/.gitkeep
