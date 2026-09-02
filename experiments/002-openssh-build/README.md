@@ -22,6 +22,13 @@ Phase 1:
 
 /opt/openssh/sbin/sshd
 
+## Deployment
+
+First, we build the image using the script: ./build-openssh.sh
+Then we create the container: ./run-sshd.sh
+
+See the documentation in docs/experiments/002-openssh-build for the results and the issues encountered.
+
 ## Validation
 
 The experiment was successfully validated with:

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-IMAGE=pqc-openssh-build
+IMAGE=pqc_lab002-openssh-build
 
 echo "[+] Building OpenSSH laboratory image"
 

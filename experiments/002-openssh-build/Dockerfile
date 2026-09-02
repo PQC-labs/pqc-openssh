@@ -2,7 +2,7 @@ FROM ubuntu:24.04
 
 LABEL maintainer="PQC-labs"
 LABEL project="pqc-openssh"
-LABEL experiment="002-openssh-build"
+LABEL experiment="pqc_lab002-openssh-build"
 
 ENV DEBIAN_FRONTEND=noninteractive
 

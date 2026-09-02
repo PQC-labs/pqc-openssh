@@ -2,6 +2,6 @@
 set -e
 
 docker run --rm -it \
-    --name pqc-openssh-build \
-    pqc-openssh-build \
+    --name pqc_lab002-openssh-build \
+    pqc_lab002-openssh-build \
     bash
