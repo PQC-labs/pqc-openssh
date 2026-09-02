@@ -23,8 +23,8 @@ docker compose ps
 Expected output:
 
 ```
-pqc_lab003-pqc-client   Up
-pqc_lab003-pqc-server   Up
+pqc_lab003-openssh-client   Up
+pqc_lab003-openssh-server   Up
 ```
 
 ## Testing SSH Connectivity
