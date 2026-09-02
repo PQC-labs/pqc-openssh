@@ -12,6 +12,9 @@ results/benchmarks/*
 # Experiment 004 results
 experiments/004-kex-benchmark/results/*
 !experiments/004-kex-benchmark/results/.gitkeep
+!experiments/004-kex-benchmark/results/plots/
+!experiments/004-kex-benchmark/results/processed/
+!experiments/004-kex-benchmark/results/raw/
 
 experiments/004-kex-benchmark/results/plots/*
 !experiments/004-kex-benchmark/results/plots/.gitkeep

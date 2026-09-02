@@ -68,9 +68,11 @@ results/processed/
 
 ## Algorithms compared
 
+```
 curve25519-sha256
 sntrup761x25519-sha512@openssh.com
 mlkem768x25519-sha256
+```
 
 ## Expected output
 
