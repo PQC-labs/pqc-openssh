@@ -42,3 +42,15 @@ mlkem768x25519-sha256
 (summary.csv)
 
 (summary.md)
+
+
+## Related Documentation
+
+- Repository README
+- `docs/experiments/004-kex-benchmark.md`
+
+---
+
+## Status
+
+✅ Completed

@@ -3,8 +3,8 @@ services:
   server:
     build:
       context: ./server
-    image: 004-kex-benchmark-server
-    container_name: pqc4-server
+    image: pqc_lab004-kex-benchmark-server
+    container_name: pqc_lab004-kex-benchmark-server
     hostname: server
 
     ports:
@@ -19,8 +19,8 @@ services:
   client:
     build:
       context: ./client
-    image: 004-kex-benchmark-client
-    container_name: pqc4-client
+    image: pqc_lab004-kex-benchmark-client
+    container_name: pqc_lab004-kex-benchmark-client
     hostname: client
 
     stdin_open: true
