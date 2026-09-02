@@ -2,9 +2,36 @@
 
 ## Objective
 
+Conduct a benchmark and compare different PQC algorithms in a compiled version of OpenSSH, analyzing the final results after a specific number of connections.
+
 ## Laboratory architecture
 
+```
+Client Container
+        │
+        │ SSH (with N connections)
+        ▼
+Server
+```
+
 ## Directory layout
+
+├── client
+│   ├── Dockerfile
+│   └── entrypoint.sh
+├── docker-compose.yml
+├── README.md
+├── results
+│   ├── plots
+│   ├── processed
+│   └── raw
+├── scripts
+│   ├── analyze-results.py
+│   └── benchmark-kex.sh
+└── server
+    ├── Dockerfile
+    ├── entrypoint.sh
+    └── sshd_config
 
 ## Build
 
@@ -22,7 +49,7 @@ docker compose exec client bash
 
 ## Analyze results
 
-exit
+Exit from container to Host and execute:
 
 python3 scripts/analyze-results.py
 
@@ -40,9 +67,7 @@ mlkem768x25519-sha256
 ## Expected output
 
 (summary.csv)
-
 (summary.md)
-
 
 ## Related Documentation
 
