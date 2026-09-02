@@ -16,11 +16,13 @@ Phase 1:
 
 ## Expected binaries
 
+```
 /opt/openssh/bin/ssh
 
 /opt/openssh/bin/ssh-keygen
 
 /opt/openssh/sbin/sshd
+````
 
 ## Deployment
 
