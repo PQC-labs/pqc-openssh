@@ -16,6 +16,7 @@ Server
 
 ## Directory layout
 
+```
 ├── client
 │   ├── Dockerfile
 │   └── entrypoint.sh
@@ -32,20 +33,27 @@ Server
     ├── Dockerfile
     ├── entrypoint.sh
     └── sshd_config
+```
 
 ## Build
 
+```
 docker compose build
+```
 
 ## Start
 
+```
 docker compose up -d
+```
 
 ## Execute benchmark
 
+```
 docker compose exec client bash
 
 /scripts/benchmark-kex.sh 100
+```
 
 ## Analyze results
 
