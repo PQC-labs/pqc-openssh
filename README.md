@@ -2,9 +2,11 @@
 
 > Reproducible engineering experiments for evaluating native Post-Quantum Cryptography support in OpenSSH.
 
-This repository is part of the **PQC-Labs** project and contains a collection of reproducible engineering experiments focused on the adoption of **Post-Quantum Cryptography (PQC)** in OpenSSH.
+This repository is part of the PQC-labs project. You can find information about the project here:
 
-Rather than implementing new cryptographic algorithms, the objective is to evaluate how modern OpenSSH versions integrate the NIST-standardized post-quantum algorithms into real-world SSH deployments.
+https://pqc-labs.github.io/pqc-lab/
+
+Contains a collection of reproducible engineering experiments focused on the adoption of **Post-Quantum Cryptography (PQC)** in OpenSSH. Rather than implementing new cryptographic algorithms, the objective is to evaluate how modern OpenSSH versions integrate the NIST-standardized post-quantum algorithms into real-world SSH deployments.
 
 Every experiment is self-contained, fully documented and reproducible using Docker.
 
