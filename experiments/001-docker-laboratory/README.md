@@ -68,8 +68,8 @@ docker compose ps
 Expected output:
 
 ```
-pqc-client   Up
-pqc-server   Up
+pqc_lab001-pqc-client   Up
+pqc_lab001-pqc-server   Up
 ```
 
 ---

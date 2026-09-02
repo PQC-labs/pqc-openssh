@@ -41,3 +41,40 @@ The experiment was successfully validated with:
 The server uses:
 
 /opt/openssh/sbin/sshd
+
+## Components
+
+### Client
+
+- Ubuntu 24.04
+- OpenSSH Client
+- Shared SSH private key
+
+### Server
+
+- Ubuntu 24.04
+- OpenSSH Server
+- Public key authentication
+
+---
+
+## Shared Resources
+
+SSH credentials are stored outside the experiment under:
+
+```
+docker/keys/
+```
+
+This directory is shared with other experiments in the repository.
+
+## Related Documentation
+
+- Repository README
+- `docs/experiments/002-openssh-build.md`
+
+---
+
+## Status
+
+✅ Completed

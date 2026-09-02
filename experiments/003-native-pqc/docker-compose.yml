@@ -3,8 +3,9 @@ services:
   server:
     build:
       context: ./server
-    container_name: pqc3-server
-
+    container_name: pqc_lab003-pqc3-server
+ 
+    image: pqc_lab003-pqc3-server:latest
     ports:
       - "2223:22"
 
@@ -17,8 +18,9 @@ services:
   client:
     build:
       context: ./client
-    container_name: pqc3-client
+    container_name: pqc_lab003-pqc3-client
 
+    image: pqc_lab003-pqc3-client:latest
     stdin_open: true
     tty: true
 
@@ -32,5 +34,6 @@ services:
       - pqc-net
 
 networks:
-
   pqc-net:
+    driver: bridge
+

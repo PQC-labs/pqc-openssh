@@ -19,6 +19,10 @@ Authentication uses the same ED25519 key pair created during Experiment 001 to e
 
 ## Verification of Supported Algorithms
 
+First, open a bash session in client:
+
+docker compose exec client bash
+
 The client was queried using:
 
 /opt/openssh/bin/ssh -Q kex
