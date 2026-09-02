@@ -3,7 +3,8 @@ services:
   server:
     build:
       context: ./server
-    container_name: pqc-server
+    image: pqc_lab001-pqc-server:latest
+    container_name: pqc_lab001-pqc-server
     hostname: server
     networks:
       - pqc-net
@@ -17,7 +18,8 @@ services:
     build:
       context: ./client
 
-    container_name: pqc-client
+    image: pqc_lab001-pqc-client:latest
+    container_name: pqc_lab001-pqc-client
     hostname: client
 
     networks:
