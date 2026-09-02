@@ -158,7 +158,9 @@ docs/
 │     ├── 003-native-pqc.md
 │     └── 004-kex-benchmark.md
 │
-└── ...
+└── scripts/
+│     ├── 001-Baseline Collection.md
+
 ```
 
 Each experiment documents:
@@ -169,6 +171,10 @@ Each experiment documents:
 - Execution procedure
 - Results
 - Conclusions
+
+Scripts:
+ 
+The scripts folder contains documentation on general-purpose scripts for all experiments.
 
 ---
 
