@@ -9,3 +9,13 @@ results/benchmarks/*
 !results/benchmarks/.gitkeep
 
 experiments/004-kex-benchmark/results/
+!results/experiments/004-kex-benchmark/results/.gitkeep
+
+experiments/004-kex-benchmark/results/plots
+!results/experiments/004-kex-benchmark/results/plots/.gitkeep
+
+experiments/004-kex-benchmark/results/processed
+!results/experiments/004-kex-benchmark/results/processed/.gitkeep
+
+experiments/004-kex-benchmark/results/raw
+!results/experiments/004-kex-benchmark/results/raw/.gitkeep
