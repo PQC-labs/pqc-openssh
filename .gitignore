@@ -7,3 +7,5 @@ results/captures/*
 
 results/benchmarks/*
 !results/benchmarks/.gitkeep
+
+experiments/004-kex-benchmark/results/
