@@ -195,35 +195,11 @@ The presence of ML-KEM confirms that the compiled version already includes the n
 
 Several issues were identified during the experiment.
 
-Locked user account
-
-Initially the researcher account was created in a locked state.
-
-The SSH server rejected authentication with:
-
-User researcher not allowed because account is locked
-
-The issue was solved by unlocking the account during image creation.
-
-Missing privilege separation user
-
-The SSH daemon initially reported:
-
-Privilege separation user sshd does not exist
-
-A dedicated system user was added to the image.
-
-Existing host keys
-
-Rebuilding the Docker image caused ssh-keygen to request confirmation before overwriting existing keys.
-
-The solution was to remove any previous keys before generating new ones.
-
-Public key deployment
-
-Initially the authorized public key had to be copied manually into the container.
-
-The final Docker image copies the public key automatically during the build process, making the environment completely reproducible.
+1. Locked user account: Initially the researcher account was created in a locked state.
+2. The SSH server rejected authentication with: User researcher not allowed because account is locked. The issue was solved by unlocking the account during image creation.
+3. Missing privilege separation user: The SSH daemon initially reported: Privilege separation user sshd does not exist (A dedicated system user was added to the image).
+4. Existing host keys: Rebuilding the Docker image caused ssh-keygen to request confirmation before overwriting existing keys. The solution was to remove any previous keys before generating new ones.
+5. Public key deployment: Initially the authorized public key had to be copied manually into the container. The final Docker image copies the public key automatically during the build process, making the environment completely reproducible.
 
 # 12. Results
 
